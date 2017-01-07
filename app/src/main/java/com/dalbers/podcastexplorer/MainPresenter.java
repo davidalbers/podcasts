@@ -2,8 +2,10 @@ package com.dalbers.podcastexplorer;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import Contracts.Contract;
-import Contracts.PodcastMediaPlayer;
+import Data.PodcastMediaPlayer;
 import Data.Podcast;
 
 /**
@@ -11,10 +13,11 @@ import Data.Podcast;
  */
 
 public class MainPresenter implements Contract.Presenter {
-    private PodcastMediaPlayer podcastMediaPlayer;
-    private Contract.Model podcastGetter;
+    @Inject public PodcastMediaPlayer podcastMediaPlayer;
+    @Inject public Contract.Model podcastGetter;
     private boolean playing = false;
-    private Contract.View view;
+    @Inject public Contract.View view;
+
     public MainPresenter(PodcastMediaPlayer podcastMediaPlayer, Contract.Model podcastGetter, Contract.View view) {
         this.podcastMediaPlayer = podcastMediaPlayer;
         this.podcastGetter = podcastGetter;

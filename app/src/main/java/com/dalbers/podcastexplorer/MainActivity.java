@@ -4,22 +4,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import Contracts.Contract;
-import Contracts.PodcastMediaPlayer;
-import Data.FakeGetPodcasts;
-import Data.FakePodcastMediaPlayer;
+import Dagger.DaggerPodcastFinder;
+import Dagger.PodcastFinder;
+import Dagger.PresenterModule;
 import Data.Podcast;
 
 public class MainActivity extends AppCompatActivity implements Contract.View{
     private RecyclerView podcastList;
     private PodcastListAdapter adapter;
-    private Contract.Presenter presenter;
-    private PodcastMediaPlayer mediaPlayer;
-    private Contract.Model podcastGetter;
+    @Inject public Contract.Presenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +32,13 @@ public class MainActivity extends AppCompatActivity implements Contract.View{
         adapter = new PodcastListAdapter();
         podcastList.setAdapter(adapter);
 
-        mediaPlayer = new FakePodcastMediaPlayer();
-        podcastGetter = new FakeGetPodcasts();
-        presenter = new MainPresenter(mediaPlayer,podcastGetter,this);
+        PodcastFinder podcastFinder = DaggerPodcastFinder
+                .builder()
+                .presenterModule(new PresenterModule(this))
+                //data has already been build by base app
+                .dataComponent(((BaseApplication) getApplication()).getDataComponent())
+                .build();
+        podcastFinder.inject(this);
         presenter.loadPodcasts();
     }
 

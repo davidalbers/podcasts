@@ -1,4 +1,4 @@
-package Contracts;
+package Data;
 
 /**
  * Created by DavidAlbers on 11/21/2016.
