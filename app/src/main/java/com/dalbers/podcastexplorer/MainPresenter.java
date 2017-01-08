@@ -31,7 +31,7 @@ public class MainPresenter implements Contract.Presenter {
 
     @Override
     public void playPause(int id) {
-        if(playing) {
+        if(!playing) {
             podcastMediaPlayer.play();
             view.showPlaying();
         }
