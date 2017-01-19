@@ -1,10 +1,10 @@
-package com.dalbers.podcastexplorer;
+package com.dalbers.podcastexplorer.Search;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import Contracts.Contract;
+import Contracts.SearchContract;
 import Data.PodcastMediaPlayer;
 import Data.Podcast;
 
@@ -12,21 +12,21 @@ import Data.Podcast;
  * Created by DavidAlbers on 11/21/2016.
  */
 
-public class MainPresenter implements Contract.Presenter {
+public class SearchPresenter implements SearchContract.Presenter {
     @Inject public PodcastMediaPlayer podcastMediaPlayer;
-    @Inject public Contract.Model podcastGetter;
+    @Inject public SearchContract.Model podcastGetter;
     private boolean playing = false;
-    @Inject public Contract.View view;
+    @Inject public SearchContract.View view;
 
-    public MainPresenter(PodcastMediaPlayer podcastMediaPlayer, Contract.Model podcastGetter, Contract.View view) {
+    public SearchPresenter(PodcastMediaPlayer podcastMediaPlayer, SearchContract.Model podcastGetter, SearchContract.View view) {
         this.podcastMediaPlayer = podcastMediaPlayer;
         this.podcastGetter = podcastGetter;
         podcastGetter.setPresenter(this);
         this.view = view;
     }
     @Override
-    public void loadPodcasts() {
-        podcastGetter.loadPodcasts();
+    public void searchPodcasts(String searchTerm) {
+        podcastGetter.searchPodcasts(searchTerm);
     }
 
     @Override

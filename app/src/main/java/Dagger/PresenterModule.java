@@ -1,8 +1,8 @@
 package Dagger;
 
-import com.dalbers.podcastexplorer.MainPresenter;
+import com.dalbers.podcastexplorer.Search.SearchPresenter;
 
-import Contracts.Contract;
+import Contracts.SearchContract;
 import Data.PodcastMediaPlayer;
 import dagger.Module;
 import dagger.Provides;
@@ -14,14 +14,14 @@ import dagger.Provides;
 @Module
 public class PresenterModule {
 
-    Contract.View view;
+    SearchContract.View view;
 
     @Provides
-    Contract.Presenter providePresenter(PodcastMediaPlayer mediaPlayer, Contract.Model model) {
-        return new MainPresenter(mediaPlayer,model,view);
+    SearchContract.Presenter providePresenter(PodcastMediaPlayer mediaPlayer, SearchContract.Model model) {
+        return new SearchPresenter(mediaPlayer,model,view);
     }
 
-    public PresenterModule(Contract.View view) {
+    public PresenterModule(SearchContract.View view) {
         this.view = view;
     }
 }

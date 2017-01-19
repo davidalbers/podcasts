@@ -1,5 +1,7 @@
 package Data;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 /**
@@ -10,10 +12,11 @@ public class Podcast {
 
     public Podcast(String name, String title, String desc, Date date) {
         this.name = name;
-        this.title = title;
+        this.artistName = title;
         this.desc = desc;
         this.date = date;
     }
+
     public String getName() {
         return name;
     }
@@ -22,12 +25,12 @@ public class Podcast {
         this.name = name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getArtistName() {
+        return artistName;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
     public String getDesc() {
@@ -46,8 +49,32 @@ public class Podcast {
         this.date = date;
     }
 
+    public String getLargeArtwork() {
+        return largeArtwork;
+    }
+
+    public void setLargeArtwork(String largeArtwork) {
+        this.largeArtwork = largeArtwork;
+    }
+
+    public String getSmallArtwork() {
+        return smallArtwork;
+    }
+
+    public void setSmallArtwork(String smallArtwork) {
+        this.smallArtwork = smallArtwork;
+    }
+
+    @SerializedName("collectionName")
     private String name;
-    private String title;
+    @SerializedName("artistName")
+    private String artistName;
+    @SerializedName("primaryGenreName")
     private String desc;
+    @SerializedName("releaseDate")
     private Date date;
+    @SerializedName("artworkUrl60")
+    private String smallArtwork;
+    @SerializedName("artworkUrl600")
+    private String largeArtwork;
 }

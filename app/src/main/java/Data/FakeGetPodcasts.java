@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import Contracts.Contract;
+import Contracts.SearchContract;
 
 /**
  * Created by DavidAlbers on 11/21/2016.
  */
 
-public class FakeGetPodcasts implements Contract.Model {
-    private Contract.Presenter presenter;
+public class FakeGetPodcasts implements SearchContract.Model {
+    private SearchContract.Presenter presenter;
     private ArrayList<Podcast> podcasts;
     public FakeGetPodcasts() {
         podcasts = new ArrayList<>();
@@ -26,12 +26,12 @@ public class FakeGetPodcasts implements Contract.Model {
         }
     }
 
-    public void setPresenter(Contract.Presenter presenter) {
+    public void setPresenter(SearchContract.Presenter presenter) {
         this.presenter = presenter;
     }
 
     @Override
-    public void loadPodcasts() {
+    public void searchPodcasts(String searchTerm) {
         Handler handler = new Handler();
         handler.postDelayed(waitToSendBackData, 100);
     }

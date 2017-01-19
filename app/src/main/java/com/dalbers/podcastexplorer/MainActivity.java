@@ -1,60 +1,42 @@
 package com.dalbers.podcastexplorer;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.ViewGroup;
 
-import java.util.List;
+import com.bluelinelabs.conductor.Conductor;
+import com.bluelinelabs.conductor.Router;
+import com.bluelinelabs.conductor.RouterTransaction;
 
-import javax.inject.Inject;
+public class MainActivity extends AppCompatActivity {
 
-import Contracts.Contract;
-import Dagger.DaggerPodcastFinder;
-import Dagger.PodcastFinder;
-import Dagger.PresenterModule;
-import Data.Podcast;
-
-public class MainActivity extends AppCompatActivity implements Contract.View{
-    private RecyclerView podcastList;
-    private PodcastListAdapter adapter;
-    @Inject public Contract.Presenter presenter;
+    private Toolbar toolbar;
+    private Router router;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        podcastList = (RecyclerView)findViewById(R.id.podcast_list);
-        podcastList.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        podcastList.setLayoutManager(layoutManager);
 
-        adapter = new PodcastListAdapter();
-        podcastList.setAdapter(adapter);
+        ViewGroup container = (ViewGroup)findViewById(R.id.controller_container);
 
-        PodcastFinder podcastFinder = DaggerPodcastFinder
-                .builder()
-                .presenterModule(new PresenterModule(this))
-                //data has already been build by base app
-                .dataComponent(((BaseApplication) getApplication()).getDataComponent())
-                .build();
-        podcastFinder.inject(this);
-        presenter.loadPodcasts();
-    }
+        router = Conductor.attachRouter(this, container, savedInstanceState);
+        if (!router.hasRootController()) {
+            router.setRoot(RouterTransaction.with(new TabsController()));
+        }
 
-    @Override
-    public void onPodcastsLoaded(List<Podcast> podcasts) {
-        adapter.setPodcasts(podcasts);
-        adapter.notifyDataSetChanged();
-    }
 
-    @Override
-    public void showPlaying() {
+
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
     }
 
     @Override
-    public void showPaused() {
-
+    public void onBackPressed() {
+        if(!router.handleBack()) {
+            super.onBackPressed();
+        }
     }
 }

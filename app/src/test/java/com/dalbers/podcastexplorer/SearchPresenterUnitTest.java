@@ -1,12 +1,14 @@
 package com.dalbers.podcastexplorer;
 
+import com.dalbers.podcastexplorer.Search.SearchPresenter;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import Contracts.Contract;
+import Contracts.SearchContract;
 import Data.PodcastMediaPlayer;
 
 import static org.mockito.Matchers.anyList;
@@ -14,17 +16,17 @@ import static org.mockito.Mockito.verify;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class MainPresenterUnitTest {
+public class SearchPresenterUnitTest {
     @Mock
-    Contract.View view;
-    @Mock Contract.Model model;
-    Contract.Presenter presenter;
+    SearchContract.View view;
+    @Mock SearchContract.Model model;
+    SearchContract.Presenter presenter;
     @Mock
     PodcastMediaPlayer mediaPlayer;
 
     @Before
     public void setup() {
-        presenter = new MainPresenter(mediaPlayer, model, view);
+        presenter = new SearchPresenter(mediaPlayer, model, view);
     }
 
     @Test
@@ -39,8 +41,8 @@ public class MainPresenterUnitTest {
 
     @Test
     public void verifyLoad() {
-        presenter.loadPodcasts();
-        verify(model).loadPodcasts();
+        presenter.searchPodcasts();
+        verify(model).searchPodcasts();
     }
 
     @Test

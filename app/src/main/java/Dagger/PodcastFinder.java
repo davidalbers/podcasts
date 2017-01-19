@@ -1,6 +1,6 @@
 package Dagger;
 
-import com.dalbers.podcastexplorer.MainActivity;
+import com.dalbers.podcastexplorer.Search.SearchController;
 
 import dagger.Component;
 
@@ -11,5 +11,5 @@ import dagger.Component;
 @Component(modules = PresenterModule.class,
             dependencies = DataComponent.class)
 public interface PodcastFinder {
-    void inject(MainActivity activity);
+    void inject(SearchController controller);
 }

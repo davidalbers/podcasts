@@ -8,7 +8,7 @@ import Data.Podcast;
  * Created by DavidAlbers on 11/21/2016.
  */
 
-public class Contract {
+public class SearchContract {
 
     public interface View {
         void onPodcastsLoaded(List<Podcast> podcasts);
@@ -17,13 +17,13 @@ public class Contract {
     }
 
     public interface Presenter {
-        void loadPodcasts();
+        void searchPodcasts(String searchTerm);
         void playPause(int id);
         void onPodcastsLoaded(List<Podcast> podcasts);
     }
 
     public interface Model {
-        void loadPodcasts();
-        void setPresenter(Contract.Presenter presenter);
+        void searchPodcasts(String searchTerm);
+        void setPresenter(SearchContract.Presenter presenter);
     }
 }

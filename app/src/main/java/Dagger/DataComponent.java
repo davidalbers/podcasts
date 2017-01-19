@@ -1,10 +1,8 @@
 package Dagger;
 
-import android.media.MediaPlayer;
-
 import javax.inject.Singleton;
 
-import Contracts.Contract;
+import Contracts.SearchContract;
 import Data.PodcastMediaPlayer;
 import dagger.Component;
 
@@ -15,7 +13,7 @@ import dagger.Component;
 @Component(modules = {DataModule.class})
 @Singleton
 public interface DataComponent {
-    Contract.Model model();
+    SearchContract.Model model();
     PodcastMediaPlayer mediaPlayer();
 }
 
