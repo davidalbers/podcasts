@@ -1,12 +1,12 @@
-package com.dalbers.podcastexplorer.Search;
+package com.dalbers.podcastexplorer.search;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import Contracts.SearchContract;
-import Data.PodcastMediaPlayer;
-import Data.Podcast;
+import com.dalbers.podcastexplorer.contracts.SearchContract;
+import com.dalbers.podcastexplorer.data.PodcastMediaPlayer;
+import com.dalbers.podcastexplorer.data.Podcast;
 
 /**
  * Created by DavidAlbers on 11/21/2016.

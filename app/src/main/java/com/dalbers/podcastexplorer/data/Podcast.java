@@ -1,4 +1,4 @@
-package Data;
+package com.dalbers.podcastexplorer.data;
 
 import com.google.gson.annotations.SerializedName;
 

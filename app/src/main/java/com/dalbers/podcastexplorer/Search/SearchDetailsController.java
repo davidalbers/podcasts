@@ -1,4 +1,4 @@
-package com.dalbers.podcastexplorer.Search;
+package com.dalbers.podcastexplorer.search;
 
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;

@@ -1,6 +1,6 @@
-package Dagger;
+package com.dalbers.podcastexplorer.dagger;
 
-import com.dalbers.podcastexplorer.Search.SearchController;
+import com.dalbers.podcastexplorer.search.SearchController;
 
 import dagger.Component;
 

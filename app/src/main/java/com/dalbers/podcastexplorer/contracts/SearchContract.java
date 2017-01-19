@@ -1,8 +1,8 @@
-package Contracts;
+package com.dalbers.podcastexplorer.contracts;
 
 import java.util.List;
 
-import Data.Podcast;
+import com.dalbers.podcastexplorer.data.Podcast;
 
 /**
  * Created by DavidAlbers on 11/21/2016.

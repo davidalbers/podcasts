@@ -1,4 +1,4 @@
-package Data;
+package com.dalbers.podcastexplorer.data;
 
 
 import android.os.Handler;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import Contracts.SearchContract;
+import com.dalbers.podcastexplorer.contracts.SearchContract;
 
 /**
  * Created by DavidAlbers on 11/21/2016.

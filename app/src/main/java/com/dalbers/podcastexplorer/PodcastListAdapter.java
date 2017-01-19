@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
-import Data.Podcast;
+import com.dalbers.podcastexplorer.data.Podcast;
 
 import static android.os.AsyncTask.THREAD_POOL_EXECUTOR;
 

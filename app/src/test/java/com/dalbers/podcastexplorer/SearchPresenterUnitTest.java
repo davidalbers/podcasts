@@ -1,6 +1,6 @@
 package com.dalbers.podcastexplorer;
 
-import com.dalbers.podcastexplorer.Search.SearchPresenter;
+import com.dalbers.podcastexplorer.search.SearchPresenter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import Contracts.SearchContract;
-import Data.PodcastMediaPlayer;
+import com.dalbers.podcastexplorer.contracts.SearchContract;
+import com.dalbers.podcastexplorer.data.PodcastMediaPlayer;
 
 import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.verify;

@@ -1,14 +1,15 @@
-package Dagger;
+package com.dalbers.podcastexplorer.dagger;
 
 import javax.inject.Singleton;
 
-import Contracts.SearchContract;
-import Data.PodcastMediaPlayer;
+import com.dalbers.podcastexplorer.contracts.SearchContract;
+import com.dalbers.podcastexplorer.data.PodcastMediaPlayer;
+
 import dagger.Component;
 
 
 /**
- * Container for data module
+ * Container for com.dalbers.podcastexplorer.data module
  */
 @Component(modules = {DataModule.class})
 @Singleton

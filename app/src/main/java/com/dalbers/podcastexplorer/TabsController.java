@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.bluelinelabs.conductor.Controller;
 import com.bluelinelabs.conductor.support.ControllerPagerAdapter;
-import com.dalbers.podcastexplorer.Search.SearchNavigationController;
+import com.dalbers.podcastexplorer.search.SearchNavigationController;
 
 /**
  * Created by davidalbers on 1/7/17.
@@ -37,7 +37,9 @@ public class TabsController extends Controller {
 
             @Override
             public CharSequence getPageTitle(int position) {
-                return "Page " + position;
+                if(getActivity() != null)
+                    return getActivity().getString(R.string.search_tab_title);
+                return "";
             }
         };
 

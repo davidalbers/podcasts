@@ -2,9 +2,9 @@ package com.dalbers.podcastexplorer;
 
 import android.app.Application;
 
-import Dagger.DaggerDataComponent;
-import Dagger.DataComponent;
-import Dagger.DataModule;
+import com.dalbers.podcastexplorer.dagger.DaggerDataComponent;
+import com.dalbers.podcastexplorer.dagger.DataComponent;
+import com.dalbers.podcastexplorer.dagger.DataModule;
 
 /**
  * Created by davidalbers on 1/6/17.

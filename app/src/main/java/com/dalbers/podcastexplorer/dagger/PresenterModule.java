@@ -1,9 +1,10 @@
-package Dagger;
+package com.dalbers.podcastexplorer.dagger;
 
-import com.dalbers.podcastexplorer.Search.SearchPresenter;
+import com.dalbers.podcastexplorer.search.SearchPresenter;
 
-import Contracts.SearchContract;
-import Data.PodcastMediaPlayer;
+import com.dalbers.podcastexplorer.contracts.SearchContract;
+import com.dalbers.podcastexplorer.data.PodcastMediaPlayer;
+
 import dagger.Module;
 import dagger.Provides;
 

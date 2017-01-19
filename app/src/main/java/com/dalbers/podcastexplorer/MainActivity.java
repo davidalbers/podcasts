@@ -11,7 +11,6 @@ import com.bluelinelabs.conductor.RouterTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     private Router router;
 
     @Override
@@ -25,11 +24,6 @@ public class MainActivity extends AppCompatActivity {
         if (!router.hasRootController()) {
             router.setRoot(RouterTransaction.with(new TabsController()));
         }
-
-
-
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
     }
 
